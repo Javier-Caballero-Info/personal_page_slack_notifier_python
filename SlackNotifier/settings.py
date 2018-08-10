@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for SlackNotifier project.
 
@@ -25,7 +27,7 @@ SECRET_KEY = 'a0s^xm8!@itdg9)re9(id_k@11ue6ge-sws8z&e-tr48+a0$e$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

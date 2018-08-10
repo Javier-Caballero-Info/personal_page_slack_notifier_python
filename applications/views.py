@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from rest_framework import viewsets
 from applications.serializers import ApplicationSerializer
 from applications.models import Application
