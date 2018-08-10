@@ -1,14 +1,9 @@
-from rest_framework.renderers import JSONRenderer
-from rest_framework.response import Response
 from rest_framework import views
-from rest_framework.serializers import ModelSerializer
+from rest_framework.response import Response
 
 from applications.models import Application
-from applications.serializers import ApplicationSerializer
 from message.models import Slack
 from message.serializers import MessageSerializer
-
-import json
 
 
 class MessageView(views.APIView):

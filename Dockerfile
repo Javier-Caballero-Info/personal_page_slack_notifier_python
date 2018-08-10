@@ -1,4 +1,4 @@
-FROM python:3.5-alpine
+FROM python:3.5
 
 # Copy in your requirements file
 ADD requirements.txt /requirements.txt
@@ -7,15 +7,7 @@ ADD requirements.txt /requirements.txt
 # ADD requirements /requirements
 
 # Install build deps, then run `pip install`, then remove unneeded build deps all in a single step. Correct the path to your production requirements file, if needed.
-RUN set -ex \
-    && apk add --no-cache --virtual .build-deps \
-            gcc \
-            make \
-            libc-dev \
-            musl-dev \
-            linux-headers \
-            pcre-dev \
-    && pyvenv /venv \
+RUN pyvenv /venv \
     && /venv/bin/pip install -U pip \
     && LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "/venv/bin/pip install --no-cache-dir -r /requirements.txt" \
     && runDeps="$( \
@@ -37,7 +29,7 @@ ADD . /code/
 EXPOSE 8000
 
 # Add any custom, static environment variables needed by Django or your settings file here:
-ENV DJANGO_SETTINGS_MODULE=my_project.settings.deploy
+ENV DJANGO_SETTINGS_MODULE=SlackNotifier.settings
 
 # uWSGI configuration (customize as needed):
 ENV UWSGI_VIRTUALENV=/venv UWSGI_WSGI_FILE=my_project/wsgi.py UWSGI_HTTP=:8000 UWSGI_MASTER=1 UWSGI_WORKERS=2 UWSGI_THREADS=8 UWSGI_UID=1000 UWSGI_GID=2000 UWSGI_LAZY_APPS=1 UWSGI_WSGI_ENV_BEHAVIOR=holy
