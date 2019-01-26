@@ -1,6 +1,6 @@
 # Personal Page Slack Notifier - Python
 
-> 
+> Python [Django RestFramework API](https://www.django-rest-framework.org/) and [Slack](https://slack.com) webhook interactions
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@
 
 ## Overview
 
-
+This API is a proxy to interact across multiple Slack accounts in a simple hub.
 
 ## API Description
 
