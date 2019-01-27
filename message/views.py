@@ -4,7 +4,7 @@ from rest_framework import views
 from rest_framework.response import Response
 
 from applications.models import Application
-from message.models import Slack
+from message.models import Slack, Message
 from message.serializers import MessageSerializer
 
 
@@ -27,8 +27,10 @@ class MessageView(views.APIView):
 
             message['thumb_url'] = a.thumb_url
 
-            if Slack.post_message(message):
-                return Response({"message": message})
+            m = Message(a, message['title'], message['text'], message['color'])
+
+            if Slack.post_message(m):
+                return Response(None, status=204)
             else:
                 return Response({"error": "Something happened"}, status=500)
 

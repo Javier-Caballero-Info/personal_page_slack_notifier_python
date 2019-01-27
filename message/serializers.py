@@ -16,6 +16,7 @@ class MessageSerializer(serializers.Serializer):
     title = serializers.CharField(
         required=True, allow_blank=False, max_length=100, write_only=True, read_only=False
     )
+
     text = serializers.CharField(
         required=True, allow_blank=False, max_length=1000, write_only=True, read_only=False
     )
@@ -23,7 +24,6 @@ class MessageSerializer(serializers.Serializer):
     color = serializers.ChoiceField(choices=COLOR_CHOICES, default='default')
 
     def create(self, validated_data):
-        print(validated_data)
         pass
 
     def update(self, instance, validated_data):
