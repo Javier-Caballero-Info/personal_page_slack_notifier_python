@@ -10,8 +10,8 @@ from message import views as message_views
 
 router = routers.DefaultRouter()
 
-router.register(r'users', user_views.UserViewSet)
-router.register(r'groups', user_views.GroupViewSet)
+# router.register(r'users', user_views.UserViewSet)
+# router.register(r'groups', user_views.GroupViewSet)
 
 router.register(r'applications', application_views.ApplicationViewSet)
 
