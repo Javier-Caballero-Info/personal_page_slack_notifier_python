@@ -160,3 +160,4 @@ fabric.properties
 
 applications/migrations/
 .idea/
+venv
